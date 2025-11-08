@@ -9,3 +9,11 @@
     - name: Vérifier la connexion locale
       ansible.builtin.ping:
 
+    - name: Lancer le conteneur ModSecurity (OWASP CRS)
+      community.docker.docker_container:
+        name: modsecurity-waf
+        image: owasp/modsecurity-crs:nginx
+        state: started
+        restart_policy: always
+        ports:
+          - "8081:80"
