@@ -1,0 +1,11 @@
+# deploy_modsecurity.yml
+# Playbook Ansible pour installer et configurer ModSecurity sur Minikube
+
+- name: Déploiement de ModSecurity (WAF) sur Minikube
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Vérifier la connexion locale
+      ansible.builtin.ping:
+
